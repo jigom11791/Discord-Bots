@@ -1,14 +1,16 @@
 module.exports = {
   name: "pet",
   description: "pet the cat",
-  execute(message, args, cat) {
+  execute(client, message, args, cat) {
+    console.log("here2");
     var cat_anger = cat["pet"] + cat["poke"];
-    if(cat_anger > 3) {
+    if (cat_anger >= 3) {
       var action = Math.random() * 100 + 1;
-      if(action < 33) {
+      console.log(action);
+      if (action < 33) {
         message.channel.send("*cat tries to bite you*");
-      } else if(action >= 33 && anction < 66) {
-        message.channel.sends("*cat tries to scratch you");
+      } else if (action >= 33 && action < 66) {
+        message.channel.send("*cat tries to scratch you*");
       } else {
         message.channel.send("*angry meow*");
       }

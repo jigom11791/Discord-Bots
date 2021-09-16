@@ -1,7 +1,7 @@
 module.exports = {
   name: "pstpst",
   description: "call the cat",
-  execute(message, args, cat_poke) {
+  execute(client, message, args, cat) {
     var action = Math.random() * 100 + 1;
     if (action < 50) {
       message.channel.send("*cat ignores you*");

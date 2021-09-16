@@ -1,7 +1,7 @@
 module.exports = {
   name: "pstpst",
   description: "call the cat",
-  execute(message, args) {
+  execute(client, message, args, cat) {
     message.channel.send("You my friend, are one sick individual");
   },
 };
