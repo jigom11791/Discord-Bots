@@ -4,7 +4,7 @@ const { token } = require("./config.json");
 const prefix = "cat_";
 const fs = require("fs");
 
-let cat = { cat_poke: 0, cat_pet: 0 };
+let cat = { poke: 0, pet: 0 };
 
 // Create a new client instance
 const client = new Client({
@@ -40,9 +40,11 @@ client.on("messageCreate", (message) => {
   } else if (command == "uwu") {
     client.commands.get("uwu").execute(message, args);
   } else if (command == "look") {
-    client.commands.get("look").execute(message, args, cat_poke);
+    client.commands.get("look").execute(message, args, cat);
   } else if (command == "poke") {
     client.commands.get("poke").execute(message, args, cat);
+  } else if (command == "feed") {
+    client.commands.get("feed").execute(message, args, cat)
   }
 });
 
