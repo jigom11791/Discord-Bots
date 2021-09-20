@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Custom Search JSON API Example</title>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script>
+      function hndlr(response) {
+          console.log(response);
+       for (var i = 0; i < response.items.length; i++) {
+         var item = response.items[i];
+         console.log(item);
+        //in production code, item.htmlTitle should have the HTML entities escaped.
+        document.getElementById("content").innerHTML += "<img src='" + item.link + "'>";
+      }
+    }
+    </script>
+    <script src="https://www.googleapis.com/customsearch/v1?start=100&searchType=image&key=AIzaSyChWR24TAhyMEuq_5dG556v56pVqVjceXQ&cx=d5221315a19354570&q=cursed+cat&callback=hndlr">
+    </script>
+  </body>
+</html>
