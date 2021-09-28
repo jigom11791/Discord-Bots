@@ -3,7 +3,9 @@ module.exports = {
   description: "look at the cat",
   execute(client, message, args, cat) {
     var cat_anger = cat["pet"] + cat["poke"];
-    if (cat_anger >= 3) {
+    if (cat_anger >= 20){
+      message.channel.send("*cat is patiently waiting for you to sleep so it can murder you*");
+    } else if (cat_anger >= 3) {
       message.channel.send("*cat stares at you angrily*");
     } else {
       var action = Math.random() * 100 + 1;

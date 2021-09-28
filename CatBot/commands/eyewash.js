@@ -16,7 +16,7 @@ module.exports = {
     //console.log(image_results);
 
     var image_index = Math.floor(Math.random() * 100 + 1);
-    console.log(image_results[image_index].url);
+    //console.log(image_results[image_index].url);
     message.channel.send(image_results[image_index].url);
   },
 };

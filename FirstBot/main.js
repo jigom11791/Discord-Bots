@@ -1,6 +1,7 @@
 // Require the necessary discord.js classes
 const { Client, Intents } = require("discord.js");
 const { token } = require("./config.json");
+const fs = require('fs');
 const prefix = "-";
 
 // Create a new client instance
@@ -23,6 +24,26 @@ client.on("messageCreate", (message) => {
     message.channel.send("pong!");
   } else if (command == "youtube") {
     message.channel.send("no");
+  } else if (command == "pic") {
+    var files = fs.readdirSync("./test1");
+    //console.log(files);
+
+//     message.channel.send({
+//       files: [{
+//         attachment: `./test1/${files[3]}`,
+//         name: `${files[3]}`
+//       }]
+//     }).then(console.log).catch(console.error);
+//   }
+// });
+
+    message.channel.send({
+      content: "This is an embed",
+      files: [{
+        attachment: `./002.gif`,
+        name: `002.gif`
+      }]
+    }).then(console.log);
   }
 });
 

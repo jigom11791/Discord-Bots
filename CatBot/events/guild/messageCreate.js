@@ -9,9 +9,11 @@ module.exports = (Discord, client, message) => {
   const cmd = args.shift().toLowerCase();
   console.log(cmd);
   const command = client.commands.get(cmd);
-  console.log("here");
-  console.log(!command);
+  //console.log("here");
+  //console.log(!command);
   if (command) {
     command.execute(client, message, args, cat);
+  } else {
+    message.channel.send(`${cmd} your face`);
   }
 };
