@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 module.exports = {
   name: "look",
   description: "look at the cat",
@@ -13,9 +15,18 @@ module.exports = {
         message.channel.send("*cat is ignoring you*");
       } else if (action > 30 && action < 40) {
         message.channel.send("*Cat stares deeply into your soul*");
-      } else if (action >= 40 && action < 70) {
+      } else if (action >= 40 && action < 60) {
         message.channel.send("*cat is sleeping*");
-      } else if (action >= 70 && action < 80) {
+      } else if(action >= 60 && action < 70){
+        var files = fs.readdirSync("./commands/look");
+        var r = Math.floor(Math.random()*files.length);
+        message.channel.send({
+          files: [{
+            attachment: `./commands/look/${files[r]}`,
+            name: `${files[r]}`
+          }]
+        }).catch(console.error);
+      }else if (action >= 70 && action < 80) {
         message.channel.send("*cat is judging you*");
       } else if (action >= 80 && action < 90) {
         message.channel.send("meow");
